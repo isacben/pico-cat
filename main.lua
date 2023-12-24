@@ -3,8 +3,8 @@ function _init()
     state="game"
     tsize=16
 
-    px=16
-    py=16*4
+    px=0
+    py=0
     pflip=false
     psteps=0
     pdir=-1
@@ -39,7 +39,7 @@ end
 
 function draw()
     if state=="game" then
-        cls(0)
+        cls(2)
         map()
         ani()
         print(debug,10,10,0)

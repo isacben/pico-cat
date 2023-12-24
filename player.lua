@@ -18,23 +18,23 @@ end
 
 function walk()
     if psteps>0 and t%1==0 then
-    if pdir==⬅️ then
-        pflip=true
-        px-=1
-        pstate="walk_s"
-    elseif pdir==➡️ then
-        pflip=false
-        px+=1
-        pstate="walk_s"
-    elseif pdir==⬆️ then
-        py-=1
-        pstate="walk_u"
-    elseif pdir==⬇️ then
-        py+=1
-        pstate="walk_d"
-    end
+        if pdir==⬅️ then
+            pflip=true
+            px-=1
+            pstate="walk_s"
+        elseif pdir==➡️ then
+            pflip=false
+            px+=1
+            pstate="walk_s"
+        elseif pdir==⬆️ then
+            py-=1
+            pstate="walk_u"
+        elseif pdir==⬇️ then
+            py+=1
+            pstate="walk_d"
+        end
 
-    psteps-=1
+        psteps-=1
     end	
 end
 
