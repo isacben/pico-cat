@@ -1,10 +1,11 @@
 function _init()
     t=0
     state="game"
+    _upd=update_game
+    _drw=draw_game
+    start_game()
     tsize=16
 
-    px=0
-    py=0
     pflip=false
     psteps=0
     pdir=-1
@@ -15,33 +16,54 @@ function _init()
     pp=1
 
     pbtn=0
-    debug=""
+    debug=true
+
+    menuitems()
+end
+
+
+function menuitems()
+    menuitem(1, debug and "debug on" or "debug off", function()
+        debug = not debug
+        menuitems()
+        return true 
+    end)
 end
 
 
 function _update60()
-    update()
+    t+=1
+    _upd()
 end
 
 
 function _draw()
-    draw()
+    _drw()
 end
 
 
-function update()
-    if state=="game" then
-        t+=1
-        pmove()
-    end
+function start_game()
+    px=1
+    py=1
 end
 
 
-function draw()
-    if state=="game" then
-        cls(2)
-        map()
-        ani()
-        print(debug,10,10,0)
-    end
+function update_game()
+    p_move()
+end
+
+
+function update_gameover()
+end
+
+
+function draw_game()
+    cls(2)
+    map()
+    ani()
+    print(debug,4,120,7)
+end
+
+
+function draw_gameover()
 end
