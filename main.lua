@@ -16,16 +16,16 @@ function _init()
     pp=1
 
     pbtn=0
-    debug=true
 
-    menuitems()
+    debug=true
+    d_toogle()
 end
 
 
-function menuitems()
+function d_toogle()
     menuitem(1, debug and "debug on" or "debug off", function()
         debug = not debug
-        menuitems()
+        d_toogle()
         return true 
     end)
 end
@@ -45,6 +45,8 @@ end
 function start_game()
     px=1
     py=1
+    pox=0
+    poy=0 --offset
 end
 
 
@@ -53,6 +55,26 @@ function update_game()
 end
 
 
+function update_pturn()
+    if pox>0 then
+        pox-=1
+    end
+    if pox<0 then
+        pox+=1
+    end
+    if poy>0 then
+        poy-=1
+    end
+    if poy<0 then
+        poy+=1
+    end
+
+    if pox==0 and poy==0 then
+        pstate=idle
+        _upd=update_game
+    end
+end
+
 function update_gameover()
 end
 
@@ -60,7 +82,7 @@ end
 function draw_game()
     cls(2)
     map()
-    ani()
+    p_ani()
     print(debug,4,120,7)
 end
 
