@@ -1,13 +1,15 @@
 function p_move()
-    if btnp(0) then
+    pstate=idle
+    if btn(0) then
         pflip=true
         px-=1
+        bdown_count+=1
         pox=16
         pstate="walk_s"
         idle="idle_s"
         _upd=update_pturn
     end
-    if btnp(1) then
+    if btn(1) then
         pflip=false
         pox=-16
         px+=1
@@ -15,14 +17,14 @@ function p_move()
         idle="idle_s"
         _upd=update_pturn
     end
-    if btnp(2) then
+    if btn(2) then
         poy=16
         py-=1
         pstate="walk_u"
         idle="idle_u"
         _upd=update_pturn
     end
-    if btnp(3) then
+    if btn(3) then
         poy=-16
         py+=1
         pstate="walk_d"

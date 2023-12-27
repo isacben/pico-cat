@@ -19,6 +19,8 @@ function _init()
 
     debug=true
     d_toogle()
+
+    bdown_count=0
 end
 
 
@@ -70,7 +72,6 @@ function update_pturn()
     end
 
     if pox==0 and poy==0 then
-        pstate=idle
         _upd=update_game
     end
 end
