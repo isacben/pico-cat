@@ -3,14 +3,13 @@ function _init()
     _upd=update_game
     _drw=draw_game
     start_game()
-    tsize=16
+    tsize=16 --tile size
 
     pflip=false
-    psteps=0
-    idle="idle_f"
-    pstate=idle
+    idle="idle_f" --type of idel animations
+    pstate=idle --player animation state
     lidle={"idle_s", "idle_s","idle_u","idle_d"}
-    anit={1,3,1}
+    anit={1,3,1} --player animation table
 
     debug=false
     d_toogle()
@@ -38,10 +37,10 @@ end
 
 
 function start_game()
-    px=1
+    px=1 --player position
     py=1
-    pox=0
-    poy=0 --offset
+    pox=0 --offset for walk animation
+    poy=0 
 end
 
 
