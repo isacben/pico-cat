@@ -1,6 +1,5 @@
 function _init()
     t=0
-    state="game"
     _upd=update_game
     _drw=draw_game
     start_game()
@@ -8,19 +7,13 @@ function _init()
 
     pflip=false
     psteps=0
-    pdir=-1
     idle="idle_f"
     pstate=idle
     lidle={"idle_s", "idle_s","idle_u","idle_d"}
     anit={1,3,1}
-    pp=1
 
-    pbtn=0
-
-    debug=true
+    debug=false
     d_toogle()
-
-    bdown_count=0
 end
 
 

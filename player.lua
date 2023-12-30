@@ -3,7 +3,6 @@ function p_move()
     if btn(0) then
         pflip=true
         px-=1
-        bdown_count+=1
         pox=16
         pstate="walk_s"
         idle="idle_s"
@@ -36,47 +35,6 @@ end
 
 function get_frame(ani)
     return ani[flr(t/15)%#ani+1]
-end
-
-
-function pmove()
-    if psteps==0 then
-        --0 1 2 3
-        --⬅️ ➡️ ⬆️ ⬇️
-        for b=0, 3 do
-            if btn(b) then
-                pdir=b
-                psteps=16
-                idle=lidle[b+1]
-            else
-                pstate=idle
-            end
-        end
-    end
-    walk()
-end
-
-
-function walk()
-    if psteps>0 and t%1==0 then
-        if pdir==⬅️ then
-            pflip=true
-            px-=1
-            pstate="walk_s"
-        elseif pdir==➡️ then
-            pflip=false
-            px+=1
-            pstate="walk_s"
-        elseif pdir==⬆️ then
-            py-=1
-            pstate="walk_u"
-        elseif pdir==⬇️ then
-            py+=1
-            pstate="walk_d"
-        end
-
-        psteps-=1
-    end	
 end
 
 
