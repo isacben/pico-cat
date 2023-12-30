@@ -1,34 +1,33 @@
 function p_move()
     pstate=idle
+
+    for i=0,3 do
+        if btn(i) then
+            px+=dirx[i+1] --dirx={-1,1,0,0}
+            py+=diry[i+1] --diry={0,0,-1,1}
+            pox=-dirx[i+1]*16
+            poy=-diry[i+1]*16
+            _upd=update_pturn
+        end
+    end
+    
     if btn(0) then
         pflip=true
-        px-=1
-        pox=16
         pstate="walk_s"
         idle="idle_s"
-        _upd=update_pturn
     end
     if btn(1) then
         pflip=false
-        pox=-16
-        px+=1
         pstate="walk_s"
         idle="idle_s"
-        _upd=update_pturn
     end
     if btn(2) then
-        poy=16
-        py-=1
         pstate="walk_u"
         idle="idle_u"
-        _upd=update_pturn
     end
     if btn(3) then
-        poy=-16
-        py+=1
         pstate="walk_d"
         idle="idle_d"
-        _upd=update_pturn
     end
 end
 

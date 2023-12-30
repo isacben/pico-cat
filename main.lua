@@ -5,6 +5,9 @@ function _init()
     start_game()
     tsize=16 --tile size
 
+    dirx={-1,1,0,0} --movement on x axis
+    diry={0,0,-1,1} --movement on y axis
+ 
     pflip=false
     idle="idle_f" --type of idel animations
     pstate=idle --player animation state
