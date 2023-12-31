@@ -7,27 +7,24 @@ function p_move()
             py+=diry[i+1] --diry={0,0,-1,1}
             pox=-dirx[i+1]*16
             poy=-diry[i+1]*16
+            idle=lidle[i+1]
+            pflip=(dirx[i+1] == -1) and true or false
+
             _upd=update_pturn
         end
     end
     
     if btn(0) then
-        pflip=true
         pstate="walk_s"
-        idle="idle_s"
     end
     if btn(1) then
-        pflip=false
         pstate="walk_s"
-        idle="idle_s"
     end
     if btn(2) then
         pstate="walk_u"
-        idle="idle_u"
     end
     if btn(3) then
         pstate="walk_d"
-        idle="idle_d"
     end
 end
 
