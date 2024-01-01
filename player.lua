@@ -1,5 +1,5 @@
 function p_move()
-    pstate=idle
+    anit=idle
 
     for i=0,3 do
         if btn(i) then
@@ -7,24 +7,12 @@ function p_move()
             py+=diry[i+1] --diry={0,0,-1,1}
             pox=-dirx[i+1]*16
             poy=-diry[i+1]*16
-            idle=lidle[i+1]
+            idle=last_idle[i+1]
+            anit=walk_ani[i+1]
             pflip=(dirx[i+1] == -1) and true or false
 
             _upd=update_pturn
         end
-    end
-    
-    if btn(0) then
-        pstate="walk_s"
-    end
-    if btn(1) then
-        pstate="walk_s"
-    end
-    if btn(2) then
-        pstate="walk_u"
-    end
-    if btn(3) then
-        pstate="walk_d"
     end
 end
 
@@ -35,21 +23,6 @@ end
 
 
 function p_ani()
-    if pstate=="idle_d" then
-        anit={1,3}
-    elseif pstate=="idle_u" then
-        anit={9,11}
-    elseif pstate=="idle_s" then
-        anit={34,36}
-    elseif pstate=="walk_d" then
-        anit={5,7}
-    elseif pstate=="walk_u" then
-        anit={13,32}
-    elseif pstate=="walk_s" then
-        anit={38,40}
-    end
-
     spr(get_frame(anit),px*16+pox,py*16+poy,2,2,pflip)
-
     d_hitbox(px*16+pox, py*16+poy, px*16+tsize+pox, py*16+tsize+poy)
 end

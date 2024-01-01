@@ -8,11 +8,21 @@ function _init()
     dirx={-1,1,0,0} --movement on x axis
     diry={0,0,-1,1} --movement on y axis
     pflip=false
-    idle="idle_f" --type of idel animations
-    pstate=idle --player animation state
-    lidle={"idle_s", "idle_s","idle_u","idle_d"}
-    anit={1,3,1} --player animation table
-
+    last_idle={
+        {34,36}, --idle left
+        {34,36}, --idle right
+        {9,11}, --idle up
+        {1,3} --idle down
+    }
+    idle=last_idle[4] --type of idel animations
+    walk_ani={
+        {38,40}, --walk left
+        {38,40}, --walk right 
+        {13,32}, --walk up
+        {5,7} --walk down
+    }
+    anit={} --player animation table
+    
     debug=false
     d_toogle()
 end
